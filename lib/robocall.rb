@@ -15,6 +15,13 @@ module Robocall
       ) 
     end
 
+    def send_robocall_xml(to: to, xml: xml, from: from_phone_number)
+      twilio = get_twilio
+      # Store the xml in a record
+      # construct the callback URL
+      # set up RoboCall!
+    end
+
     private
 
     def get_twilio
