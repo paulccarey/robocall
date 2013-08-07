@@ -22,6 +22,12 @@ module Robocall
       # set up RoboCall!
     end
 
+    def send_robocall(to: to, text: text, language: :english, from: from_phone_number)
+      # Render XML
+      xml = ""
+      send_robocall_xml(to, xml, from)
+    end
+
     private
 
     def get_twilio
