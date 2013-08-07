@@ -14,4 +14,10 @@ gem "jquery-rails"
 # your gem to rubygems.org.
 
 # To use debugger
-# gem 'debugger'
+group :test, :development do
+  gem 'debugger'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'sqlite3'
+end
+
