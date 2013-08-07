@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.summary     = "Easy way to send robocalls with Rails and Twilio."
   s.description = "Provides all the infrastructure to send synthesized robocalls with Twilio."
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["test/**/*"]
 
   s.add_dependency "rails", "~> 3.2.13"
