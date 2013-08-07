@@ -7,11 +7,11 @@ require "robocall/version"
 Gem::Specification.new do |s|
   s.name        = "robocall"
   s.version     = Robocall::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of Robocall."
-  s.description = "TODO: Description of Robocall."
+  s.authors     = ["Reto Stamm"]
+  s.email       = ["reto.stamm@originate.com"]
+  s.homepage    = "https://github.com/retospect/robocall"
+  s.summary     = "Easy way to send robocalls with Rails and Twilio."
+  s.description = "Provides all the infrastructure to send synthesized robocalls with Twilio."
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
