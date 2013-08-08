@@ -20,9 +20,11 @@ rake db:migrate
 
 In conf/environment.rb, add the configuration:
 ``` ruby
+# Your twilio.com phone number, sid and auth token
 Robocall.from_phone_number = '555-555-5555'
 Robocall.sid               = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
 Robocall.auth_token        = 'yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy'
+# Basepath for the callback URL, your server name
 Robocall.base_path         = 'http://example.com'
 ```
 
@@ -34,4 +36,7 @@ Robocall.send_robocall(to: '555 555 5555', text: 'Hola', lanugage: :spanish)
 # Send a twiml xml message as defined here: http://www.twilio.com/docs/api/twiml
 Robocall.send_robocall_xml(to: '555 555 5555', xml: xml)
 ```
+
+Note: that texts are sent out pretty much from anywhere, but robocalls require the system to be set up on a publically accessible server, because Twilio wants to talk to you. 
+
 
