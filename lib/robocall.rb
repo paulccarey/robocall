@@ -4,7 +4,7 @@ require 'twilio-ruby'
 
 module Robocall
   class << self
-    attr_accessor :sid, :auth_token, :from_phone_number
+    attr_accessor :sid, :auth_token, :from_phone_number, :base_path
 
     def send_text(to: to, text: text, from: from_phone_number)
       twilio = get_twilio
@@ -18,14 +18,24 @@ module Robocall
     def send_robocall_xml(to: to, xml: xml, from: from_phone_number)
       twilio = get_twilio
       # Store the xml in a record
+      debugger
+      callback_record = Robocall.new
+      debugger
+      callback_record.xml = xml
+      callback_record.save
       # construct the callback URL
-      # set up RoboCall!
+      robocall_path(callback_record)
+      twilio.account.calls.create(
+        :from => from,
+        :to   => to,
+        :url  => url
+      )
     end
 
     def send_robocall(to: to, text: text, language: :english, from: from_phone_number)
       # Render XML
-      xml = ""
-      send_robocall_xml(to, xml, from)
+      xml = "foo"
+      send_robocall_xml(to: to, xml: xml, from: from)
     end
 
     private
