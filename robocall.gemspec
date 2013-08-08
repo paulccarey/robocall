@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = Robocall::VERSION
   s.authors     = ["Reto Stamm"]
   s.email       = ["reto.stamm@originate.com"]
-  s.homepage    = "https://github.com/retospect/robocall"
+  s.homepage    = "https://github.com/Originate/robocall"
   s.summary     = "Easy way to send robocalls with Rails and Twilio."
   s.description = "Provides all the infrastructure to send synthesized robocalls with Twilio."
 
