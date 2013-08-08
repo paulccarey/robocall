@@ -7,6 +7,7 @@ module Robocall
     attr_accessor :sid, :auth_token, :from_phone_number, :base_path
 
     def send_text(to: to, text: text, from: from_phone_number)
+      return true
       twilio = get_twilio
       twilio.account.sms.messages.create(
         :from => from,
@@ -16,6 +17,7 @@ module Robocall
     end
 
     def send_robocall_xml(to: to, xml: xml, from: from_phone_number)
+      return true
       twilio = get_twilio
       # Store the xml in a record
       debugger
@@ -33,6 +35,7 @@ module Robocall
     end
 
     def send_robocall(to: to, text: text, language: :english, from: from_phone_number)
+      return true
       # Render XML
       xml = "foo"
       send_robocall_xml(to: to, xml: xml, from: from)
