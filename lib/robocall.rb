@@ -1,4 +1,4 @@
-
+require 'robocall/engine'
 require 'twilio-ruby'
 require File.dirname(__FILE__) + "/../app/models/robocall/robocall"
 
