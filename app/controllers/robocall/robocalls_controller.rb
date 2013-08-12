@@ -1,4 +1,5 @@
 require_dependency "robocall/application_controller"
+require 'haml'
 
 module Robocall
   class RobocallsController < ApplicationController

@@ -1,5 +1,6 @@
 require 'robocall/engine'
 require 'twilio-ruby'
+require 'haml'
 require File.dirname(__FILE__) + "/../app/models/robocall/robocall"
 
 module Robocall
