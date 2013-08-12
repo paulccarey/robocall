@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    robocall (0.0.3)
+    robocall (0.0.4)
       haml-rails
       rails (~> 3.2.13)
       twilio-ruby
