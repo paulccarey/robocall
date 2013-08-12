@@ -32,7 +32,11 @@ module Robocall
 
     def send_robocall(to: to, text: text, language: :english, from: from_phone_number)
       # Render XML
-      xml = "<Say language:#{language}>#{text}</Say>"
+      template = File.read('app/views/robocall/robocalls/connected_to_caller.xml.haml')
+      data = {}
+      data['text'] = text
+      data['language'] = language
+      xml = Haml::Engine.new(template).to_html(Object.new, data )
       send_robocall_xml(to: to, xml: xml, from: from)
     end
 
