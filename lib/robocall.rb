@@ -12,19 +12,17 @@ module Robocall
         :from => from,
         :to   => to,
         :body => text
-      ) 
+      )
     end
 
     def send_robocall_xml(to: to, xml: xml, from: from_phone_number)
       twilio = get_twilio
       # Store the xml in a record
-      debugger
       callback_record = Robocall.new
-      debugger
       callback_record.xml = xml
       callback_record.save
       # construct the callback URL
-      robocall_path(callback_record)
+      url = base_path+"/robocall/#{callback_record.id}/#{callback_record.token}"
       twilio.account.calls.create(
         :from => from,
         :to   => to,
@@ -34,14 +32,14 @@ module Robocall
 
     def send_robocall(to: to, text: text, language: :english, from: from_phone_number)
       # Render XML
-      xml = "foo"
+      xml = "<Say language:#{language}>#{text}</Say>"
       send_robocall_xml(to: to, xml: xml, from: from)
     end
 
     private
 
     def get_twilio
-      verify_configuration_values(:sid, :auth_token, :from_phone_number)
+      verify_configuration_values(:sid, :auth_token, :from_phone_number, :base_path)
       return Twilio::REST::Client.new sid, auth_token
     end
 
