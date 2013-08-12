@@ -1,5 +1,5 @@
-[![Gem Version](https://badge.fury.io/rb/robocall.png)][gem]
-[![CircleCI](https://circleci.com/gh/originate/robocall.png)[circleci]
+![Gem Version](https://badge.fury.io/rb/robocall.png)
+![CircleCI](https://circleci.com/gh/originate/robocall.png)
 
 
 ## About
