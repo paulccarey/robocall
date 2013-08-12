@@ -1,11 +1,10 @@
-![CircleCI](https://circleci.com/gh/Originate/robocall.png)
+[![Gem Version](https://badge.fury.io/rb/robocall.png)][gem]
+[![CircleCI](https://circleci.com/gh/originate/robocall.png)[circleci]
 
 
 ## About
 
 A rails gem to easily add sending synthesized messages from Rails to any phone number. 
-
-Does not quite work yet.
 
 ## Install
 
