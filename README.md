@@ -1,6 +1,5 @@
 ![Gem Version](https://badge.fury.io/rb/robocall.png)
-![CircleCI](https://circleci.com/gh/Originate/robocall.png)
-
+![CircleCI](https://circleci.com/gh/Originate/robocall.png?token=f5b18cbae4729bcb1b41cccb7f20415c57318b15)
 
 ## About
 
@@ -33,7 +32,7 @@ Robocall.base_path         = 'http://example.com'
 Now, you can send calls and texts easily using:
 ``` ruby
 Robocall.send_text(to: '555 555 5555', text: 'Hey you!')
-Robocall.send_robocall(to: '555 555 5555', text: 'This is an bad joke alert.')
+Robocall.send_robocall(to: '555 555 5555', text: 'This is a bad joke alert.')
 Robocall.send_robocall(to: '555 555 5555', text: 'Hola', lanugage: :spanish)
 # Send a twiml xml message as defined here: http://www.twilio.com/docs/api/twiml
 Robocall.send_robocall_xml(to: '555 555 5555', xml: xml)
