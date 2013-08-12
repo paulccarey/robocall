@@ -3,6 +3,7 @@ require 'twilio-ruby'
 require File.dirname(__FILE__) + "/../app/models/robocall/robocall"
 
 module Robocall
+
   class << self
     attr_accessor :sid, :auth_token, :from_phone_number, :base_path
 
@@ -30,9 +31,13 @@ module Robocall
       )
     end
 
-    def send_robocall(to: to, text: text, language: :english, from: from_phone_number)
+    def send_robocall(to: to, text: text, language: 'en-US', from: from_phone_number)
       # Render XML
-      template = File.read('app/views/robocall/robocalls/connected_to_caller.xml.haml')
+      template = <<'HAML'
+<?xml version='1.0' encoding='utf-8' ?>
+%Say{:voice => 'alice', :language => language}
+  = text
+HAML
       data = {}
       data['text'] = text
       data['language'] = language

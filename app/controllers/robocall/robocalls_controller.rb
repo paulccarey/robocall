@@ -18,7 +18,15 @@ module Robocall
       error = "The token was invalid" unless @r && @r.token == params[:token]
       if error != ''
         @error = error
-        template = File.read('app/views/robocall/robocalls/error.xml.haml')
+        template = <<'HAML'
+<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+
+%Say{:voice => 'alice'}
+  An error has occured retreieveing your automatic message.
+  Specifically,
+  = error
+HAML
+
         xml = Haml::Engine.new(template).to_html(Object.new, {:error => error} )
         render :xml => xml, :content_type => 'application/xml'
       else
