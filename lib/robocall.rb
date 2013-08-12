@@ -36,8 +36,9 @@ module Robocall
       # Render XML
       template = <<'HAML'
 <?xml version='1.0' encoding='utf-8' ?>
-%Say{:voice => 'alice', :language => language}
-  = text
+%Response
+  %Say{:voice => 'alice', :language => language}
+    = text
 HAML
       data = {}
       data['text'] = text
