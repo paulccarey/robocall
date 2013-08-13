@@ -58,7 +58,7 @@ HAML
     end
 
     def cleanup(minutes_old: 360)
-      Robocall.delete_all("\"updated_at\" < \"#{minutes_old.minutes.ago}\"")
+      Robocall.delete_all(["updated_at < ?", minutes_old.minutes.ago])
     end
 
     private
