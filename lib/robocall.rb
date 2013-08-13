@@ -32,27 +32,36 @@ module Robocall
       )
     end
 
-    def send_robocall(to: to, text: text, language: 'en-US', from: from_phone_number)
+    def send_robocall(to: to, text: text, language: 'en-US', voice: 'alice', from: from_phone_number)
       # Render XML
-      template = <<'HAML'
-<?xml version='1.0' encoding='utf-8' ?>
-%Response
-  %Say{:voice => 'alice', :language => language}
-    = text
-HAML
-      data = {}
-      data['text'] = text
-      data['language'] = language
-      xml = Haml::Engine.new(template).to_html(Object.new, data )
+      xml = render_say(text: text, language: language, voice: voice)
       send_robocall_xml(to: to, xml: xml, from: from)
     end
-
-    private
 
     def get_twilio
       verify_configuration_values(:sid, :auth_token, :from_phone_number, :base_path)
       return Twilio::REST::Client.new sid, auth_token
     end
+
+    def render_say(text: text, language: 'en-US', voice: 'alice')
+      template = <<'HAML'
+<?xml version='1.0' encoding='utf-8' ?>
+%Response
+  %Say{:voice => voice, :language => language}
+    = text
+HAML
+      data = {}
+      data['text'] = text
+      data['language'] = language
+      data['voice']  = voice
+      xml = Haml::Engine.new(template).to_html(Object.new, data )
+    end
+
+    def cleanup(minutes_old: 360)
+      Robocall.delete_all("\"updated_at\" < \"#{minutes_old.minutes.ago}\"")
+    end
+
+    private
 
     def verify_configuration_values(*symbols)
       absent_values = symbols.select{|symbol| instance_variable_get("@#{symbol}").nil? }

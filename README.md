@@ -3,7 +3,7 @@
 
 ## About
 
-A rails gem to easily add sending synthesized messages from Rails to any phone number. 
+A rails gem to easily add sending synthesized messages from Rails to any phone number.
 
 ## Install
 
@@ -34,10 +34,21 @@ Now, you can send calls and texts easily using:
 Robocall.send_text(to: '555 555 5555', text: 'Hey you!')
 Robocall.send_robocall(to: '555 555 5555', text: 'This is a bad joke alert.')
 Robocall.send_robocall(to: '555 555 5555', text: 'Hola', lanugage: :spanish)
+
 # Send a twiml xml message as defined here: http://www.twilio.com/docs/api/twiml
 Robocall.send_robocall_xml(to: '555 555 5555', xml: xml)
+
+# Returns the TwilioRuby twilio object for fancyer things
+# See https://github.com/twilio/twilio-ruby
+Robocall.get_twilio()
+
+# Deletes any callback record older than 6 hours
+# You may want to run this once a day
+Robocall.cleanup
 ```
 
-Note: that texts are sent out pretty much from anywhere, but robocalls require the system to be set up on a publically accessible server, because Twilio wants to talk to you. 
+Note: that texts are sent out pretty much from anywhere, but robocalls require the system to be set up on a publically accessible server, because Twilio wants to talk to you.
+
+
 
 
