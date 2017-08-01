@@ -17,11 +17,12 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["spec/**/*"]
 
-  s.add_dependency "rails", "~> 4.0.2"
-  s.add_dependency "twilio-ruby"
-  s.add_dependency "haml-rails"
+  s.add_dependency 'rails', '< 4.2'
+  s.add_dependency 'twilio-ruby'
+  s.add_dependency 'haml-rails'
 
   s.add_development_dependency "sqlite3"
   s.add_development_dependency 'rspec-rails'
+  s.add_development_dependency 'rspec-collection_matchers'
   s.add_development_dependency 'factory_girl_rails'
 end
