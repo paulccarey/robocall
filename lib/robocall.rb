@@ -8,7 +8,7 @@ module Robocall
   class << self
     attr_accessor :sid, :auth_token, :from_phone_number, :base_path
 
-    def send_text(to: to, text: text, from: from_phone_number)
+    def send_text(to:, text:, from: from_phone_number)
       twilio = get_twilio
       twilio.account.sms.messages.create(
         :from => from,
@@ -17,7 +17,7 @@ module Robocall
       )
     end
 
-    def send_robocall_xml(to: to, xml: xml, from: from_phone_number)
+    def send_robocall_xml(to:, xml:, from: from_phone_number)
       twilio = get_twilio
       # Store the xml in a record
       callback_record = Robocall.new
@@ -32,7 +32,7 @@ module Robocall
       )
     end
 
-    def send_robocall(to: to, text: text, language: 'en-US', voice: 'alice', from: from_phone_number)
+    def send_robocall(to:, text:, language: 'en-US', voice: 'alice', from: from_phone_number)
       # Render XML
       xml = render_say(text: text, language: language, voice: voice)
       send_robocall_xml(to: to, xml: xml, from: from)
@@ -43,7 +43,7 @@ module Robocall
       return Twilio::REST::Client.new sid, auth_token
     end
 
-    def render_say(text: text, language: 'en-US', voice: 'alice')
+    def render_say(text:, language: 'en-US', voice: 'alice')
       template = <<'HAML'
 <?xml version='1.0' encoding='utf-8' ?>
 %Response
