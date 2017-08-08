@@ -17,8 +17,5 @@ gem "haml-rails"
 # To use debugger
 group :test, :development do
   gem 'pry'
-  gem 'rspec-rails'
-  gem 'factory_girl_rails'
-  gem 'sqlite3'
 end
 
